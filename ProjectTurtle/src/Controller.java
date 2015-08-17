@@ -15,6 +15,8 @@ import java.time.LocalDate;
 
 public class Controller {
 
+    //hallo jgjg
+
     private static String apiKey ="524901&APPID=86ae04679fdbf8a297228b8f8cedea5c";
 
     public LineChart maxTemp;
