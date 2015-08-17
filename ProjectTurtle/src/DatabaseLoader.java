@@ -59,4 +59,17 @@ public class DatabaseLoader {
 
     }
 
+    public void deleteEntry(HhbPosten posten){
+
+        String sql= "DELETE FROM haushaltsbuch WHERE id="+posten.getId();
+
+        try {
+            Statement s =c.createStatement();
+            s.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

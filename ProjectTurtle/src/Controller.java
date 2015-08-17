@@ -85,7 +85,7 @@ public class Controller {
         katSel.getItems().clear();
         artSel.getItems().clear();
 
-        hb.addKategorie("Auto");
+        //hb.addKategorie("Auto");
 
         katSel.setItems(hb.getKategorien());
         artSel.getItems().addAll("Ausgabe", "Einnahme");
