@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+   <tabs>
+      <Tab text="Untitled Tab">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="345.0" prefWidth="217.0" />
+                  <ListView fx:id="lv" layoutX="371.0" layoutY="14.0" prefHeight="225.0" prefWidth="215.0" />
+                  <ProgressBar fx:id="pb" layoutX="371.0" layoutY="290.0" prefWidth="200.0" progress="0.0" />
+                  <Button id="b" layoutX="290.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleButton" text="Button" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Untitled Tab">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <LineChart fx:id="diagramm" horizontalZeroLineVisible="false" layoutX="14.0" layoutY="-14.0" verticalZeroLineVisible="false">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>

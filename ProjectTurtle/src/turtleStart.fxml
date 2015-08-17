@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <tabs>
+    <Tab text="Wetter">
+      <content>
+        <SplitPane dividerPositions="0.3496993987975952" prefHeight="160.0" prefWidth="200.0">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+              <children>
+                <TextField fx:id="stadtFeld" layoutX="99.0" layoutY="41.0" />
+                <Label layoutX="14.0" layoutY="45.0" text="Stadt:" />
+                <Button fx:id="suchen" layoutX="130.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="25.0" prefWidth="82.0" text="Suchen" />
+                <TextField fx:id="landFeld" layoutX="99.0" layoutY="69.0" prefWidth="144.0" />
+                <Label layoutX="14.0" layoutY="72.0" text="Land:" />
+                <Button fx:id="clearButton" layoutX="92.0" layoutY="153.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="163.0" text="Diagramme löschen" />
+              </children>
+            </AnchorPane>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <GridPane prefHeight="1700.0" prefWidth="647.0">
+                  <children>
+                    <LineChart fx:id="maxTemp" title="Max Temperatur">
+                      <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                      </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="minTemp" title="Min Temperatur" GridPane.rowIndex="1">
+                      <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                      </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="hum" title="\% Luftfeuchtigkeit" GridPane.rowIndex="2">
+                      <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                      </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="wind" title="Windgeschwindigkeit" verticalZeroLineVisible="false" GridPane.rowIndex="3">
+                      <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                      </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="pressure" title="Luftdruck" verticalZeroLineVisible="false" GridPane.rowIndex="4">
+                      <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                      </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="actTemp" title="Aktuelle Temperatur" verticalZeroLineVisible="false" GridPane.rowIndex="5">
+                      <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                      </yAxis>
+                    </LineChart>
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </content>
+            </ScrollPane>
+          </items>
+        </SplitPane>
+      </content>
+    </Tab>
+    <Tab text="Haushaltsbuch">
+      <content>
+        <SplitPane dividerPositions="0.29759519038076154" prefHeight="160.0" prefWidth="200.0">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+              <children>
+                <TextField fx:id="bezFeld" layoutX="132.0" layoutY="66.0" />
+                <DatePicker fx:id="dateSel" layoutX="132.0" layoutY="138.0" prefHeight="25.0" prefWidth="149.0" />
+                <Label layoutX="14.0" layoutY="22.0" text="Neuen Eintrag anlegen">
+                  <font>
+                    <Font size="20.0" />
+                  </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="70.0" text="Bezeichnung" />
+                <Label layoutX="14.0" layoutY="106.0" text="Kategorie" />
+                <Label layoutX="14.0" layoutY="142.0" text="Datum" />
+                <Label layoutX="14.0" layoutY="179.0" text="Buchungsart" />
+                <Button fx:id="addButton" layoutX="133.0" layoutY="268.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="150.0" text="Eintrag anlegen" />
+                <ChoiceBox fx:id="katSel" layoutX="132.0" layoutY="102.0" prefWidth="150.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+                        <ChoiceBox fx:id="artSel" layoutX="132.0" layoutY="175.0" prefWidth="150.0" />
+                        <TextField fx:id="betragFeld" layoutX="133.0" layoutY="213.0" />
+                        <Label layoutX="15.0" layoutY="217.0" text="Betrag" />
+                        <Label layoutX="14.0" layoutY="324.0" text="Neue Kategorie anlegen">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="369.0" text="Name" />
+                        <TextField fx:id="katFeld" layoutX="132.0" layoutY="365.0" />
+                        <Button fx:id="katButton" layoutX="132.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleKatButton" prefHeight="25.0" prefWidth="148.0" text="Kategorie anlegen" />
+              </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+              <children>
+                <TableView fx:id="table" layoutX="14.0" layoutY="14.0" prefHeight="684.0" prefWidth="671.0">
+                  <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+                  <columns>
+                    <TableColumn fx:id="bezCol" prefWidth="92.0" text="Bezeichnung" />
+                    <TableColumn fx:id="katCol" prefWidth="58.0" text="Kategorie" />
+                    <TableColumn fx:id="dateCol" prefWidth="75.0" text="Datum" />
+                    <TableColumn fx:id="einCol" prefWidth="40.0" text="Einahme" />
+                    <TableColumn fx:id="ausCol" prefWidth="227.0" text="Ausgabe" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
